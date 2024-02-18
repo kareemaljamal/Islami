@@ -37,6 +37,8 @@ dependencies:
   cupertino_icons: ^1.0.6
   google_fonts: ^6.1.0
   another_flutter_splash_screen: ^1.2.0
+  data_table_2: ^2.5.10
+
 
 
 
