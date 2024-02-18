@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:islami_app/app_bar.dart';
 import 'package:islami_app/nav_bar.dart';
 import 'package:islami_app/tabs/hadeeth.dart';
 import 'package:islami_app/tabs/quran.dart';
 import 'package:islami_app/tabs/radio.dart';
 import 'package:islami_app/tabs/sebha.dart';
+import 'package:islami_app/tabs/settings.dart';
 
 class HomeScreen extends StatefulWidget {
   static const String routeName = 'home';
@@ -25,7 +27,8 @@ class _HomeScreenState extends State<HomeScreen> {
               image: AssetImage(
                   'assets/images/home_background.png'))),
       child: Scaffold(
-        appBar: AppBar(title: Text('اسلامي')),
+        backgroundColor: Colors.transparent,
+        appBar: IslamiAppBar(),
         bottomNavigationBar: NavBar(
           index: selectedIndex,
           onClicked: onNavIconClicked,
@@ -45,5 +48,6 @@ class _HomeScreenState extends State<HomeScreen> {
     Sebha(),
     Hadeeth(),
     Quraan(),
+    Settings()
   ];
 }
