@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-class Quraan extends StatelessWidget {
-  const Quraan({super.key});
+class Settings extends StatelessWidget {
+  Settings({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.red,
+      color: Colors.green,
     );
   }
 }
