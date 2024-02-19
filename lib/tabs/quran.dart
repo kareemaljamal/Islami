@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:islami_app/my_theme.dart';
 import 'package:islami_app/sura_details.dart';
 import 'package:islami_app/sura_model.dart';
 
@@ -281,9 +281,8 @@ class _QuraanState extends State<Quraan> {
                 child: Text(
                   textAlign: TextAlign.center,
                   'عدد الآيات',
-                  style: GoogleFonts.elMessiri(
-                      fontSize: 25,
-                      fontWeight: FontWeight.w600),
+                  style: MyThemeData
+                      .lightTheme.textTheme.bodyMedium,
                 ),
               ),
               VerticalDivider(
@@ -295,9 +294,8 @@ class _QuraanState extends State<Quraan> {
                 child: Text(
                   textAlign: TextAlign.center,
                   'إسم السورة',
-                  style: GoogleFonts.elMessiri(
-                      fontSize: 25,
-                      fontWeight: FontWeight.w600),
+                  style: MyThemeData
+                      .lightTheme.textTheme.bodyMedium,
                 ),
               ),
             ],
@@ -348,9 +346,8 @@ class _QuraanState extends State<Quraan> {
                         child: Text(
                           '${versesNumber[index]}',
                           textAlign: TextAlign.center,
-                          style: GoogleFonts.elMessiri(
-                              fontSize: 25,
-                              fontWeight: FontWeight.w400),
+                          style: MyThemeData.lightTheme
+                              .textTheme.bodySmall,
                         ),
                       );
                     },
@@ -409,9 +406,8 @@ class _QuraanState extends State<Quraan> {
                         child: Text(
                           suraNames[index],
                           textAlign: TextAlign.center,
-                          style: GoogleFonts.elMessiri(
-                              fontSize: 25,
-                              fontWeight: FontWeight.w400),
+                          style: MyThemeData.lightTheme
+                              .textTheme.bodySmall,
                         ),
                       );
                     },
