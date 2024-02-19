@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:islami_app/sura_model.dart';
+
+import 'my_theme.dart';
 
 class SuraDetails extends StatefulWidget {
   static const String routeName = 'sura details';
@@ -44,8 +45,8 @@ class _SuraDetailsState extends State<SuraDetails> {
                   padding: const EdgeInsets.all(8.0),
                   child: Text(
                     versus[index],
-                    style: GoogleFonts.elMessiri(
-                        fontSize: 20, letterSpacing: .5),
+                    style: MyThemeData
+                        .lightTheme.textTheme.bodyMedium,
                     textAlign: TextAlign.center,
                   ),
                 );

@@ -25,6 +25,10 @@ class NavBar extends StatelessWidget {
       items: const [
         BottomNavigationBarItem(
             icon: ImageIcon(
+                AssetImage('assets/icons/ic_quran.png')),
+            label: ''),
+        BottomNavigationBarItem(
+            icon: ImageIcon(
                 AssetImage('assets/icons/ic_radio.png')),
             label: ''),
         BottomNavigationBarItem(
@@ -36,9 +40,7 @@ class NavBar extends StatelessWidget {
                 AssetImage('assets/icons/ic_hadeeth.png')),
             label: ''),
         BottomNavigationBarItem(
-            icon: ImageIcon(
-                AssetImage('assets/icons/ic_quran.png')),
-            label: ''),
+            icon: Icon(Icons.settings), label: ''),
       ],
     );
   }
