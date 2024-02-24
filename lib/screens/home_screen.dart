@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:islami_app/screens/tabs/hadeeth.dart';
 import 'package:islami_app/screens/tabs/quran.dart';
@@ -26,7 +27,7 @@ class _HomeScreenState extends State<HomeScreen> {
               image: AssetImage(
                   'assets/images/home_background.png'))),
       child: Scaffold(
-        appBar: AppBar(title: Text('اسلامي')),
+        appBar: AppBar(title: Text('islami').tr()),
         bottomNavigationBar: NavBar(
           index: selectedIndex,
           onClicked: onNavIconClicked,

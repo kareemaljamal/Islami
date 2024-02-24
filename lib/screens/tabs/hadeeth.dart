@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -32,9 +33,9 @@ class _HadeethState extends State<Hadeeth> {
         color: Color(0xFFB7935F),
       ),
       Text(
-        'الأحاديث',
+        'hadeeth',
         style: MyThemeData.lightTheme.textTheme.bodyLarge,
-      ),
+      ).tr(),
       Divider(
         thickness: 3,
         color: Color(0xFFB7935F),

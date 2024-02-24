@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:islami_app/utils/my_theme.dart';
@@ -15,8 +16,8 @@ class Settings extends StatelessWidget {
       padding: EdgeInsets.symmetric(vertical: 1.sh / 8),
       child: Column(children: [
         Text(
-          'Language',
-          style: MyThemeData.lightTheme.textTheme.bodyLarge,
+          'language',
+          style: Theme.of(context).textTheme.bodyLarge,
         ),
         InkWell(
           onTap: () {
@@ -27,27 +28,27 @@ class Settings extends StatelessWidget {
                 });
           },
           child: Container(
-              padding: EdgeInsets.symmetric(
-                  horizontal: 1.sh / 10),
-              decoration: BoxDecoration(
-                  border: Border.all(
-                      color: MyThemeData
-                          .lightTheme.primaryColor),
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(20)),
-              child: Text(
-                'Arabic',
-                style: MyThemeData
-                    .lightTheme.textTheme.bodyMedium,
-              )),
+            padding:
+                EdgeInsets.symmetric(horizontal: 1.sh / 10),
+            decoration: BoxDecoration(
+                border: Border.all(
+                    color: MyThemeData
+                        .lightTheme.primaryColor),
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(20)),
+            child: Text(
+              'arabic',
+              style: Theme.of(context).textTheme.bodyMedium,
+            ).tr(),
+          ),
         ),
         SizedBox(
           height: 1.sh / 6,
         ),
         Text(
-          'Mode',
-          style: MyThemeData.lightTheme.textTheme.bodyLarge,
-        ),
+          'mode',
+          style: Theme.of(context).textTheme.bodyLarge,
+        ).tr(),
         InkWell(
           onTap: () {
             showModalBottomSheet(
@@ -67,8 +68,8 @@ class Settings extends StatelessWidget {
                   borderRadius: BorderRadius.circular(20)),
               child: Text(
                 'Light Mode',
-                style: MyThemeData
-                    .lightTheme.textTheme.bodyMedium,
+                style:
+                    Theme.of(context).textTheme.bodyMedium,
               )),
         ),
       ]),

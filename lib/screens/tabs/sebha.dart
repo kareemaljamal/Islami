@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:islami_app/utils/my_theme.dart';
 
@@ -62,10 +63,10 @@ class _SebhaState extends State<Sebha> {
           padding: EdgeInsets.only(
               top: (height * .06), bottom: 10),
           child: Text(
-            'عدد التسبيحات',
+            'numbersOfTasbehat',
             style:
                 MyThemeData.lightTheme.textTheme.bodyMedium,
-          ),
+          ).tr(),
         ),
         Container(
           decoration: BoxDecoration(
