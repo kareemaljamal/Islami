@@ -1,28 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:islami_app/sura_model.dart';
+import 'package:islami_app/models/hadeeth_model.dart';
 
-import 'my_theme.dart';
+class HadeethDetails extends StatefulWidget {
+  static const String routeName = 'hadeeth details';
 
-class SuraDetails extends StatefulWidget {
-  static const String routeName = 'sura details';
-
-  SuraDetails({super.key});
+  HadeethDetails({super.key});
 
   @override
-  State<SuraDetails> createState() => _SuraDetailsState();
+  State<HadeethDetails> createState() =>
+      _HadeethDetailsState();
 }
 
-class _SuraDetailsState extends State<SuraDetails> {
-  List<String> versus = [];
-
+class _HadeethDetailsState extends State<HadeethDetails> {
   @override
   Widget build(BuildContext context) {
     var model = ModalRoute.of(context)!.settings.arguments
-        as SuraModel;
-    if (versus.isEmpty) {
-      LoadFile(model.index);
-    }
+        as HadeethModel;
+
     return Container(
       decoration: BoxDecoration(
           image: DecorationImage(
@@ -30,11 +24,11 @@ class _SuraDetailsState extends State<SuraDetails> {
               image: AssetImage(
                   'assets/images/home_background.png'))),
       child: Scaffold(
-          appBar: AppBar(title: Text(model.name)),
+          appBar: AppBar(title: Text(model.title)),
           body: Card(
             margin: EdgeInsets.all(20),
             elevation: 12,
-            color: Colors.white.withOpacity(.8),
+            color: Colors.white.withOpacity(.6),
             shape: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(30),
                 borderSide:
@@ -44,25 +38,17 @@ class _SuraDetailsState extends State<SuraDetails> {
                 return Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Text(
-                    versus[index],
-                    style: MyThemeData
-                        .lightTheme.textTheme.bodyMedium,
+                    model.hadeethBody[index],
+                    style: Theme.of(context)
+                        .textTheme
+                        .bodyMedium,
                     textAlign: TextAlign.center,
                   ),
                 );
               },
-              itemCount: versus.length,
+              itemCount: model.hadeethBody.length,
             ),
           )),
     );
-  }
-
-  Future<void> LoadFile(int index) async {
-    String sura = await rootBundle
-        .loadString('assets/files/${index + 1}.txt');
-    List<String> lines = sura.split("\n");
-    versus = lines;
-    print(versus);
-    setState(() {});
   }
 }
