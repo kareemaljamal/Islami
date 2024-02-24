@@ -1,0 +1,17 @@
+{
+  "suraName":"اسم السورة",
+  "versesNumber": "عدد الآيات",
+  "numbersOfTasbehat": "عدد التسبيحات",
+  "hadeeth": "الأحاديث",
+  "radioName": "إذاعة القرآن الكريم",
+
+  "language": "اللغة",
+
+  "english": "إنجليزي",
+  "arabic": "عربي",
+  "mode": "الواجهة",
+  "light": "الواجهة الفاتحة",
+  "dark": "الواجهة الداكنة",
+  "islami": "إسلامي"
+
+}

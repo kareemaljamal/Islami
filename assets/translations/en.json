@@ -1,0 +1,17 @@
+{
+  "suraName":"Sura Name",
+  "versesNumber": "Verses",
+  "numbersOfTasbehat": "Numbers Of Tasbehat",
+  "hadeeth": "Ahadeeth",
+  "radioName": "Quran Radio",
+
+  "language": "Language",
+  "english": "English",
+  "arabic": "Arabic",
+  "mode": "Theme",
+  "light": "Light Mode",
+  "dark": "Dark Mode",
+  "islami": "Islami"
+
+
+}

@@ -38,6 +38,7 @@ dependencies:
   google_fonts: ^6.1.0
   another_flutter_splash_screen: ^1.2.0
   flutter_screenutil: ^5.9.0
+  easy_localization: ^3.0.4
 
 
 
@@ -103,4 +104,5 @@ flutter:
     - assets/files/
     - assets/images/2x/
     - assets/images/3x/
+    - assets/translations/
 

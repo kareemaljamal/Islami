@@ -1,13 +1,8 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:islami_app/models/sura_model.dart';
 import 'package:islami_app/screens/sura_details.dart';
 import 'package:islami_app/utils/my_theme.dart';
-
-enum ScrollingList {
-  none,
-  left,
-  right,
-}
 
 class Quraan extends StatefulWidget {
   Quraan({super.key});
@@ -249,16 +244,6 @@ class _QuraanState extends State<Quraan> {
     5,
     6
   ];
-  late final ScrollController _controllerLeft;
-  late final ScrollController _controllerRight;
-  var scrollingList = ScrollingList.none;
-
-  @override
-  void initState() {
-    super.initState();
-    _controllerLeft = ScrollController();
-    _controllerRight = ScrollController();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -279,11 +264,12 @@ class _QuraanState extends State<Quraan> {
             children: [
               Expanded(
                 child: Text(
+                  'suraName',
                   textAlign: TextAlign.center,
-                  'عدد الآيات',
-                  style: MyThemeData
-                      .lightTheme.textTheme.bodyMedium,
-                ),
+                  style: Theme.of(context)
+                      .textTheme
+                      .bodyMedium,
+                ).tr(),
               ),
               VerticalDivider(
                 width: 30,
@@ -292,11 +278,12 @@ class _QuraanState extends State<Quraan> {
               ),
               Expanded(
                 child: Text(
+                  'versesNumber',
                   textAlign: TextAlign.center,
-                  'إسم السورة',
-                  style: MyThemeData
-                      .lightTheme.textTheme.bodyMedium,
-                ),
+                  style: Theme.of(context)
+                      .textTheme
+                      .bodyMedium,
+                ).tr(),
               ),
             ],
           ),
@@ -309,120 +296,59 @@ class _QuraanState extends State<Quraan> {
           child: Row(
             children: [
               Expanded(
-                child: NotificationListener<
-                    ScrollNotification>(
-                  onNotification: (notification) {
-                    if (notification
-                        is ScrollStartNotification) {
-                      if (scrollingList ==
-                          ScrollingList.none) {
-                        scrollingList = ScrollingList.left;
-                      }
-                    } else if (notification
-                        is ScrollEndNotification) {
-                      if (scrollingList ==
-                          ScrollingList.left) {
-                        scrollingList = ScrollingList.none;
-                      }
-                    }
-                    if (scrollingList ==
-                        ScrollingList.left) {
-                      _controllerRight
-                          .jumpTo(_controllerLeft.offset);
-                    }
-                    return true;
-                  },
-                  child: ListView.separated(
-                    controller: _controllerLeft,
-                    itemBuilder: (context, index) {
-                      return InkWell(
-                        onTap: () {
-                          Navigator.pushNamed(context,
-                              SuraDetails.routeName,
-                              arguments: SuraModel(
-                                  name: suraNames[index],
-                                  index: index));
-                        },
-                        child: Text(
-                          '${versesNumber[index]}',
-                          textAlign: TextAlign.center,
-                          style: MyThemeData.lightTheme
-                              .textTheme.bodySmall,
+                child: ListView.separated(
+                  itemBuilder: (context, index) {
+                    return InkWell(
+                      onTap: () {
+                        Navigator.pushNamed(
+                            context, SuraDetails.routeName,
+                            arguments: SuraModel(
+                                name: suraNames[index],
+                                index: index));
+                      },
+                      child: IntrinsicHeight(
+                        child: Row(
+                          children: [
+                            Expanded(
+                              child: Text(
+                                suraNames[index],
+                                textAlign: TextAlign.center,
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .bodySmall,
+                              ),
+                            ),
+                            VerticalDivider(
+                              color:
+                                  MyThemeData.primaryColor,
+                              thickness: 3,
+                            ),
+                            Expanded(
+                              child: Text(
+                                versesNumber[index]
+                                    .toString(),
+                                textAlign: TextAlign.center,
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .bodySmall,
+                              ),
+                            ),
+                          ],
                         ),
-                      );
-                    },
-                    itemCount: suraNames.length,
-                    separatorBuilder:
-                        (BuildContext context, int index) {
-                      return Divider(
-                        endIndent: 0,
-                        indent: 0,
-                        thickness: 1,
-                        color: Color(0xFFB7935F),
-                      );
-                    },
-                  ),
-                ),
-              ),
-              VerticalDivider(
-                thickness: 3,
-                color: Color(0xFFB7935F),
-              ),
-              Expanded(
-                child: NotificationListener<
-                    ScrollNotification>(
-                  onNotification: (notification) {
-                    if (notification
-                        is ScrollStartNotification) {
-                      if (scrollingList ==
-                          ScrollingList.none) {
-                        scrollingList = ScrollingList.right;
-                      }
-                    } else if (notification
-                        is ScrollEndNotification) {
-                      if (scrollingList ==
-                          ScrollingList.right) {
-                        scrollingList = ScrollingList.none;
-                      }
-                    }
-                    if (scrollingList ==
-                        ScrollingList.right) {
-                      _controllerLeft
-                          .jumpTo(_controllerRight.offset);
-                    }
-                    return true;
+                      ),
+                    );
                   },
-                  child: ListView.separated(
-                    controller: _controllerRight,
-                    itemBuilder: (context, index) {
-                      return InkWell(
-                        onTap: () {
-                          Navigator.pushNamed(context,
-                              SuraDetails.routeName,
-                              arguments: SuraModel(
-                                  name: suraNames[index],
-                                  index: index));
-                        },
-                        child: Text(
-                          suraNames[index],
-                          textAlign: TextAlign.center,
-                          style: MyThemeData.lightTheme
-                              .textTheme.bodySmall,
-                        ),
-                      );
-                    },
-                    itemCount: suraNames.length,
-                    separatorBuilder:
-                        (BuildContext context, int index) {
-                      return Divider(
-                        endIndent: 0,
-                        indent: 0,
-                        thickness: 1,
-                        color: MyThemeData
-                            .lightTheme.primaryColor,
-                      );
-                    },
-                  ),
+                  itemCount: suraNames.length,
+                  separatorBuilder:
+                      (BuildContext context, int index) {
+                    return Divider(
+                      endIndent: 0,
+                      indent: 0,
+                      thickness: 1,
+                      color: MyThemeData
+                          .lightTheme.primaryColor,
+                    );
+                  },
                 ),
               ),
             ],

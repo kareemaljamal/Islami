@@ -1,6 +1,6 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:islami_app/utils/my_theme.dart';
 
 class Raadio extends StatelessWidget {
   const Raadio({super.key});
@@ -20,9 +20,10 @@ class Raadio extends StatelessWidget {
           SizedBox(
             height: 1.sh / 10,
           ),
-          Text("إذاعة القرآن الكريم",
-              style: MyThemeData
-                  .lightTheme.textTheme.bodyLarge),
+          Text("radioName",
+                  style:
+                      Theme.of(context).textTheme.bodyLarge)
+              .tr(),
           SizedBox(
             height: 1.sh / 30,
           ),
