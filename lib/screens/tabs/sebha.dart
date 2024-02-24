@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:islami_app/my_theme.dart';
+import 'package:islami_app/utils/my_theme.dart';
 
 class Sebha extends StatefulWidget {
   Sebha({super.key});

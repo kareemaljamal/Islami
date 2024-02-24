@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:islami_app/my_theme.dart';
-import 'package:islami_app/sura_details.dart';
-import 'package:islami_app/sura_model.dart';
+import 'package:islami_app/models/sura_model.dart';
+import 'package:islami_app/screens/sura_details.dart';
+import 'package:islami_app/utils/my_theme.dart';
 
 enum ScrollingList {
   none,
@@ -418,7 +418,8 @@ class _QuraanState extends State<Quraan> {
                         endIndent: 0,
                         indent: 0,
                         thickness: 1,
-                        color: Color(0xFFB7935F),
+                        color: MyThemeData
+                            .lightTheme.primaryColor,
                       );
                     },
                   ),

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:islami_app/my_theme.dart';
+import 'package:islami_app/utils/my_theme.dart';
 
 class Raadio extends StatelessWidget {
   const Raadio({super.key});

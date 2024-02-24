@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:islami_app/my_theme.dart';
-import 'package:islami_app/splash_screen.dart';
-import 'package:islami_app/sura_details.dart';
+import 'package:islami_app/screens/hadeeth_details.dart';
+import 'package:islami_app/screens/splash_screen.dart';
+import 'package:islami_app/screens/sura_details.dart';
+import 'package:islami_app/utils/my_theme.dart';
 
-import 'home_screen.dart';
+import 'screens/home_screen.dart';
 
 void main() {
   runApp(Islami());
@@ -19,11 +20,13 @@ class Islami extends StatelessWidget {
           theme: MyThemeData.lightTheme,
           darkTheme: MyThemeData.darkTheme,
           debugShowCheckedModeBanner: false,
-          initialRoute: HomeScreen.routeName,
+          initialRoute: SplashScreen.routeName,
           routes: {
             SplashScreen.routeName: (context) =>
                 SplashScreen(),
             HomeScreen.routeName: (context) => HomeScreen(),
+            HadeethDetails.routeName: (context) =>
+                HadeethDetails(),
             SuraDetails.routeName: (context) =>
                 SuraDetails(),
           }),

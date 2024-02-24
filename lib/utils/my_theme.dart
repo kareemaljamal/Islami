@@ -2,6 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class MyThemeData {
+  static const Color primaryColor = Color(0xFFB7935F);
+  static const Color primaryDarkColor = Color(0xFF141A2E);
+  static const Color blackColor = Color(0xFF242424);
+  static const Color yellowColor = Colors.amber;
+
   static ThemeData lightTheme = ThemeData(
       primaryColor: Color(0xFFB7935F),
       textTheme: TextTheme(
@@ -14,6 +19,7 @@ class MyThemeData {
       brightness: Brightness.light,
       scaffoldBackgroundColor: Colors.transparent,
       appBarTheme: AppBarTheme(
+          elevation: 0,
           backgroundColor: Colors.transparent,
           centerTitle: true,
           titleTextStyle: GoogleFonts.elMessiri(
