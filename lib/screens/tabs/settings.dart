@@ -18,7 +18,7 @@ class Settings extends StatelessWidget {
         Text(
           'language',
           style: Theme.of(context).textTheme.bodyLarge,
-        ),
+        ).tr(),
         InkWell(
           onTap: () {
             showModalBottomSheet(

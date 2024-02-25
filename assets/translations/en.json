@@ -4,7 +4,6 @@
   "numbersOfTasbehat": "Numbers Of Tasbehat",
   "hadeeth": "Ahadeeth",
   "radioName": "Quran Radio",
-
   "language": "Language",
   "english": "English",
   "arabic": "Arabic",
@@ -12,6 +11,4 @@
   "light": "Light Mode",
   "dark": "Dark Mode",
   "islami": "Islami"
-
-
 }
