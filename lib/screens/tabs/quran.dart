@@ -4,14 +4,9 @@ import 'package:islami_app/models/sura_model.dart';
 import 'package:islami_app/screens/sura_details.dart';
 import 'package:islami_app/utils/my_theme.dart';
 
-class Quraan extends StatefulWidget {
+class Quraan extends StatelessWidget {
   Quraan({super.key});
 
-  @override
-  State<Quraan> createState() => _QuraanState();
-}
-
-class _QuraanState extends State<Quraan> {
   List<String> suraNames = [
     "الفاتحه",
     "البقرة",

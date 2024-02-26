@@ -1,6 +1,5 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:islami_app/utils/my_theme.dart';
 
 class Sebha extends StatefulWidget {
   Sebha({super.key});
@@ -29,9 +28,8 @@ class _SebhaState extends State<Sebha> {
           width: double.infinity,
           child: GestureDetector(
             onTap: () {
-              if (counter < 30) {
+              if (counter < 33) {
                 counter += 1;
-                print(counter);
                 setState(() {});
               } else {
                 counter = 0;
@@ -64,8 +62,7 @@ class _SebhaState extends State<Sebha> {
               top: (height * .06), bottom: 10),
           child: Text(
             'numbersOfTasbehat',
-            style:
-                MyThemeData.lightTheme.textTheme.bodyMedium,
+            style: Theme.of(context).textTheme.bodyMedium,
           ).tr(),
         ),
         Container(
@@ -76,8 +73,7 @@ class _SebhaState extends State<Sebha> {
           padding: EdgeInsets.all(20),
           child: Text(
             counter.toString(),
-            style:
-                MyThemeData.lightTheme.textTheme.bodyMedium,
+            style: Theme.of(context).textTheme.bodyMedium,
           ),
         ),
         Container(
@@ -89,8 +85,7 @@ class _SebhaState extends State<Sebha> {
           padding: EdgeInsets.all(20),
           child: Text(
             azkar[index],
-            style:
-                MyThemeData.lightTheme.textTheme.bodyMedium,
+            style: Theme.of(context).textTheme.bodyMedium,
           ),
         )
       ],

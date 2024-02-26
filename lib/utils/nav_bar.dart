@@ -11,32 +11,35 @@ class NavBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BottomNavigationBar(
-      currentIndex: index,
-      onTap: (selectedIndex) {
-        onClicked(selectedIndex);
-      },
-      iconSize: 35,
-      items: const [
-        BottomNavigationBarItem(
-            icon: ImageIcon(
-                AssetImage('assets/icons/ic_quran.png')),
-            label: ''),
-        BottomNavigationBarItem(
-            icon: ImageIcon(
-                AssetImage('assets/icons/ic_radio.png')),
-            label: ''),
-        BottomNavigationBarItem(
-            icon: ImageIcon(
-                AssetImage('assets/icons/ic_sebha.png')),
-            label: ''),
-        BottomNavigationBarItem(
-            icon: ImageIcon(
-                AssetImage('assets/icons/ic_hadeeth.png')),
-            label: ''),
-        BottomNavigationBarItem(
-            icon: Icon(Icons.settings), label: ''),
-      ],
+    return Directionality(
+      textDirection: TextDirection.ltr,
+      child: BottomNavigationBar(
+        currentIndex: index,
+        onTap: (selectedIndex) {
+          onClicked(selectedIndex);
+        },
+        iconSize: 35,
+        items: const [
+          BottomNavigationBarItem(
+              icon: ImageIcon(
+                  AssetImage('assets/icons/ic_quran.png')),
+              label: ''),
+          BottomNavigationBarItem(
+              icon: ImageIcon(
+                  AssetImage('assets/icons/ic_radio.png')),
+              label: ''),
+          BottomNavigationBarItem(
+              icon: ImageIcon(
+                  AssetImage('assets/icons/ic_sebha.png')),
+              label: ''),
+          BottomNavigationBarItem(
+              icon: ImageIcon(AssetImage(
+                  'assets/icons/ic_hadeeth.png')),
+              label: ''),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.settings), label: ''),
+        ],
+      ),
     );
   }
 }
