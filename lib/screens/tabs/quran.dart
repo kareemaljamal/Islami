@@ -7,7 +7,7 @@ import 'package:islami_app/utils/my_theme.dart';
 class Quraan extends StatelessWidget {
   Quraan({super.key});
 
-  List<String> suraNames = [
+  final List<String> suraNames = [
     "الفاتحه",
     "البقرة",
     "آل عمران",
@@ -123,7 +123,7 @@ class Quraan extends StatelessWidget {
     "الفلق",
     "الناس"
   ];
-  List<int> versesNumber = [
+  final List<int> versesNumber = [
     7,
     286,
     200,
