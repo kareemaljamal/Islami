@@ -13,10 +13,12 @@ import 'screens/home_screen.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
+  MainProvider provider = MainProvider();
+  await provider.setInstance();
   runApp(MultiProvider(
     providers: [
       ChangeNotifierProvider<MainProvider>(
-          create: (context) => MainProvider())
+          create: (context) => provider)
     ],
     child: EasyLocalization(
         supportedLocales: [Locale('en'), Locale('ar')],
