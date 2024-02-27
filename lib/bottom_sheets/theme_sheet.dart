@@ -1,13 +1,18 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:islami_app/utils/my_theme.dart';
+import 'package:provider/provider.dart';
+
+import '../providers/main_provider.dart';
 
 class ThemeSheet extends StatelessWidget {
   ThemeSheet({super.key});
 
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<MainProvider>(context);
     return Padding(
-      padding: const EdgeInsets.all(18.0),
+      padding: const EdgeInsets.all(30.0),
       child: Column(
         children: [
           Row(
@@ -16,16 +21,16 @@ class ThemeSheet extends StatelessWidget {
             children: [
               InkWell(
                 onTap: () {
-                  ////
+                  provider.changeTheme(ThemeMode.light);
                 },
                 child: Text(
-                  "Light Mode",
-                  /////
-                ),
+                  "light",
+                ).tr(),
               ),
-              Icon(Icons.done,
-                  size: 35,
-                  color: MyThemeData.primaryColor),
+              if (provider.themeMode == ThemeMode.light)
+                Icon(Icons.done,
+                    size: 35,
+                    color: MyThemeData.primaryColor),
             ],
           ),
           Divider(
@@ -38,15 +43,16 @@ class ThemeSheet extends StatelessWidget {
             children: [
               InkWell(
                 onTap: () {
-                  ////
+                  provider.changeTheme(ThemeMode.dark);
                 },
                 child: Text(
-                  "Dark Mode",
-                  ///////
-                ),
+                  "dark",
+                ).tr(),
               ),
-              Icon(Icons.done,
-                  size: 35, color: MyThemeData.primaryColor)
+              if (provider.themeMode == ThemeMode.dark)
+                Icon(Icons.done,
+                    size: 35,
+                    color: MyThemeData.primaryColor),
             ],
           ),
         ],

@@ -1,7 +1,9 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:islami_app/providers/main_provider.dart';
 import 'package:islami_app/utils/my_theme.dart';
+import 'package:provider/provider.dart';
 
 import '../../bottom_sheets/language_sheet.dart';
 import '../../bottom_sheets/theme_sheet.dart';
@@ -11,6 +13,7 @@ class Settings extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<MainProvider>(context);
     return Container(
       width: 1.sw,
       padding: EdgeInsets.symmetric(vertical: 1.sh / 8),
@@ -18,7 +21,7 @@ class Settings extends StatelessWidget {
         Text(
           'language',
           style: Theme.of(context).textTheme.bodyLarge,
-        ),
+        ).tr(),
         InkWell(
           onTap: () {
             showModalBottomSheet(
@@ -37,9 +40,12 @@ class Settings extends StatelessWidget {
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(20)),
             child: Text(
-              'arabic',
-              style: Theme.of(context).textTheme.bodyMedium,
-            ).tr(),
+              provider.currentLanguage(),
+              style: Theme.of(context)
+                  .textTheme
+                  .bodyMedium!
+                  .copyWith(color: Colors.black),
+            ),
           ),
         ),
         SizedBox(
@@ -67,9 +73,11 @@ class Settings extends StatelessWidget {
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(20)),
               child: Text(
-                'Light Mode',
-                style:
-                    Theme.of(context).textTheme.bodyMedium,
+                provider.currentMode().tr(),
+                style: Theme.of(context)
+                    .textTheme
+                    .bodyMedium!
+                    .copyWith(color: Colors.black),
               )),
         ),
       ]),

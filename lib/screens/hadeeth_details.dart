@@ -1,19 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:islami_app/models/hadeeth_model.dart';
+import 'package:provider/provider.dart';
 
-class HadeethDetails extends StatefulWidget {
+import '../providers/main_provider.dart';
+
+class HadeethDetails extends StatelessWidget {
   static const String routeName = 'hadeeth details';
 
   HadeethDetails({super.key});
 
   @override
-  State<HadeethDetails> createState() =>
-      _HadeethDetailsState();
-}
-
-class _HadeethDetailsState extends State<HadeethDetails> {
-  @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<MainProvider>(context);
     var model = ModalRoute.of(context)!.settings.arguments
         as HadeethModel;
 
@@ -22,9 +20,13 @@ class _HadeethDetailsState extends State<HadeethDetails> {
           image: DecorationImage(
               fit: BoxFit.fill,
               image: AssetImage(
-                  'assets/images/home_background.png'))),
+                  provider.getBackgroundImage()))),
       child: Scaffold(
-          appBar: AppBar(title: Text(model.title)),
+          appBar: AppBar(
+              title: Text(
+            model.title,
+            style: Theme.of(context).textTheme.bodyMedium,
+          )),
           body: Card(
             margin: EdgeInsets.all(20),
             elevation: 12,

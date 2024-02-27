@@ -6,6 +6,9 @@ import 'package:islami_app/screens/tabs/radio.dart';
 import 'package:islami_app/screens/tabs/sebha.dart';
 import 'package:islami_app/screens/tabs/settings.dart';
 import 'package:islami_app/utils/nav_bar.dart';
+import 'package:provider/provider.dart';
+
+import '../providers/main_provider.dart';
 
 class HomeScreen extends StatefulWidget {
   static const String routeName = 'home';
@@ -20,14 +23,19 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<MainProvider>(context);
     return Container(
       decoration: BoxDecoration(
           image: DecorationImage(
               fit: BoxFit.fill,
               image: AssetImage(
-                  'assets/images/home_background.png'))),
+                  provider.getBackgroundImage()))),
       child: Scaffold(
-        appBar: AppBar(title: Text('islami').tr()),
+        appBar: AppBar(
+            title: Text(
+          'islami',
+          style: Theme.of(context).textTheme.bodyLarge,
+        ).tr()),
         bottomNavigationBar: NavBar(
           index: selectedIndex,
           onClicked: onNavIconClicked,

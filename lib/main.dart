@@ -5,22 +5,34 @@ import 'package:islami_app/screens/hadeeth_details.dart';
 import 'package:islami_app/screens/splash_screen.dart';
 import 'package:islami_app/screens/sura_details.dart';
 import 'package:islami_app/utils/my_theme.dart';
+import 'package:provider/provider.dart';
 
+import '../providers/main_provider.dart';
 import 'screens/home_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
-  runApp(EasyLocalization(
-      supportedLocales: [Locale('en'), Locale('ar')],
-      path: 'assets/translations',
-      fallbackLocale: Locale('en'),
-      child: Islami()));
+  MainProvider provider = MainProvider();
+  await provider.setInstance();
+  runApp(MultiProvider(
+    providers: [
+      ChangeNotifierProvider<MainProvider>(
+          create: (context) => provider)
+    ],
+    child: EasyLocalization(
+        supportedLocales: [Locale('en'), Locale('ar')],
+        path: 'assets/translations',
+        fallbackLocale: Locale('en'),
+        child: Islami()),
+  ));
 }
 
 class Islami extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<MainProvider>(context);
+    context.setLocale(Locale(provider.languageCode));
     return ScreenUtilInit(
       designSize: Size(412, 870),
       builder: (context, child) => MaterialApp(
@@ -29,6 +41,7 @@ class Islami extends StatelessWidget {
           supportedLocales: context.supportedLocales,
           locale: context.locale,
           theme: MyThemeData.lightTheme,
+          themeMode: provider.themeMode,
           darkTheme: MyThemeData.darkTheme,
           debugShowCheckedModeBanner: false,
           initialRoute: SplashScreen.routeName,
