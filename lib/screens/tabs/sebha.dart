@@ -11,6 +11,7 @@ class Sebha extends StatefulWidget {
 class _SebhaState extends State<Sebha> {
   int counter = 1;
   int index = 0;
+  double rotation = 0;
 
   List<String> azkar = [
     'سبحان الله',
@@ -30,6 +31,7 @@ class _SebhaState extends State<Sebha> {
             onTap: () {
               if (counter < 33) {
                 counter += 1;
+                rotation += 1 / 33;
                 setState(() {});
               } else {
                 counter = 0;
@@ -49,10 +51,15 @@ class _SebhaState extends State<Sebha> {
                       'assets/images/head_sebha_logo.png'),
                 ),
                 Container(
-                    margin:
-                        EdgeInsets.only(top: height * .085),
+                  margin:
+                      EdgeInsets.only(top: height * .085),
+                  child: AnimatedRotation(
+                    turns: rotation,
+                    duration: const Duration(seconds: 1),
                     child: Image.asset(
-                        'assets/images/body_sebha_logo.png')),
+                        'assets/images/body_sebha_logo.png'),
+                  ),
+                ),
               ],
             ),
           ),
